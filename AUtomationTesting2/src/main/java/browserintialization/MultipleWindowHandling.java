@@ -23,31 +23,49 @@ public class MultipleWindowHandling{
 		String parent = driver.getWindowHandle();
 		System.out.println(parent);
 		Set<String> allwindow = driver.getWindowHandles();
-		String title="";
+		String title = "";
 		for(String allwindows:allwindow) {
 			if(!allwindows.equals(parent)) {
 				System.out.println(allwindows);
 				driver.switchTo().window(allwindows);
-				title=driver.getTitle();
+				title = driver.getTitle();
 				//System.out.println(driver.getTitle());
 			}
-		if(title.equals("WebDriver | Login portal")) {
-			WebElement username=driver.findElement(By.xpath("//input[@type='text']"));
-			username.sendKeys("harishma");
-					username.sendKeys("harishma");
-		}
-		if(title.equals("WebDriver |Contact Us")) {
-			WebElement firstname=driver.findElement(By.xpath("//input[@name='first_name']"));
-			firstname.sendKeys("harishma");
-					firstname.sendKeys("harishma");
-		}
+			if(title.equals("WebDriver | Login Portal")) {
+				WebElement username = driver.findElement(By.xpath("//input[@type='text']"));
+				username.sendKeys("Harishma");
+			}
+			if(title.equals("WebDriver | Login Portal")) {
+				WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
+				password.sendKeys("ayra@1234");
+			}
+			if(title.equals("WebDriver | Login Portal")) {
+				WebElement button = driver.findElement(By.id("login-button"));
+				button.click();
+			}
+			if(title.equals("WebDriver | Contact Us")){
+				WebElement firstname = driver.findElement(By.xpath("//input[@name='first_name']"));
+				firstname.sendKeys("Harishma GB");
+			}
+			if(title.equals("WebDriver | Contact Us")){
+				WebElement lastname = driver.findElement(By.xpath("//input[@name='last_name']"));
+				lastname.sendKeys("Harishma Bibin");
+			}
+			if(title.equals("WebDriver | Contact Us")){
+				WebElement email = driver.findElement(By.xpath("//input[@name='email']"));
+				email.sendKeys("harichakku1@gmail.com");
+			}
+			if(title.equals("WebDriver | Contact Us")){
+				WebElement message = driver.findElement(By.xpath("//textarea[@name='message']"));
+				message.sendKeys("Hi Harishma");
+			}
+			if(title.equals("WebDriver | Contact Us")){
+				WebElement submit = driver.findElement(By.xpath("//input[@type='submit']"));
+				submit.click();
+			}
 		}
 	}
 	
-	
-	
-
-
 	public static void main(String[] args) {
 		MultipleWindowHandling multi=new MultipleWindowHandling();
 		multi.MultipleWindow();
